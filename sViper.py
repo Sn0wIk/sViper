@@ -1,7 +1,7 @@
 from pynput import mouse
 import os
 import time
-
+import logging # мне похуй на твои пепы хуепы 
 SWIPE_THRESHOLD = 100
 swipe_started = False
 start_x = 0
@@ -26,16 +26,16 @@ def on_move(x, y):
     if swipe_started:
         dx = x - start_x
         if dx > SWIPE_THRESHOLD:
-            print("лево руля")
+            logging.info("лево руля")
             switch_space("left")
             swipe_started = False
         elif dx < -SWIPE_THRESHOLD:
-            print("право руля")
+            logging.info("право руля")
             switch_space("right")
             swipe_started = False
 
 def main():
-    print("ебашь родной")
+    logging.debug("ебашь родной")
     with mouse.Listener(on_click=on_click, on_move=on_move) as listener:
         listener.join()
 
