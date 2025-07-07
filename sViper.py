@@ -6,7 +6,7 @@ SWIPE_THRESHOLD = 100
 swipe_started = False
 start_x = 0
 
-def switch_space(direction):
+def switch_space(direction): # тут я прервался на дрочку
     if direction == "left":
         os.system('osascript -e \'tell application "System Events" to key code 123 using control down\'')  # ←
     else:
